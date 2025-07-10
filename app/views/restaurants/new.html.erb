@@ -1,0 +1,26 @@
+<h1 class="mb-4">Add a New Restaurant</h1>
+
+<%= simple_form_for @restaurant do |f| %>
+  <div class="mb-3">
+    <%= f.input :name, input_html: { class: "form-control" } %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.input :address, input_html: { class: "form-control" } %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.input :phone_number, input_html: { class: "form-control" } %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.input :category,
+      collection: Restaurant::CATEGORIES,
+      prompt: "Choose a category",
+      input_html: { class: "form-select" } %>
+  </div>
+
+  <%= f.button :submit, "Create Restaurant", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Back to all restaurants", restaurants_path, class: "btn btn-secondary mt-3" %>
